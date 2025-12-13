@@ -14,18 +14,21 @@ export const GeminiWish: React.FC<GeminiWishProps> = () => {
     try {
       // We don't set loading to true here to prevent flickering between updates
       const text = await generateBibleVerse();
-      setVerseData(text);
+      if (text) {
+        setVerseData(text);
+      }
       setLoading(false);
     } catch (error) {
       console.error("Failed to fetch verse", error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchVerse(); // Initial fetch
 
-    // Update every 30 seconds
-    const interval = setInterval(fetchVerse, 30000);
+    // Update every 60 seconds to respect API rate limits (Free tier is often ~15 RPM, but let's be safe)
+    const interval = setInterval(fetchVerse, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -62,7 +65,7 @@ export const GeminiWish: React.FC<GeminiWishProps> = () => {
            )}
            
            <div className="absolute bottom-0 left-0 h-0.5 bg-slate-700/30 w-full">
-             <div className="h-full bg-gold-500/30 animate-[width_30s_linear_infinite]" style={{ width: '0%' }}></div>
+             <div className="h-full bg-gold-500/30 animate-[width_60s_linear_infinite]" style={{ width: '0%' }}></div>
            </div>
         </div>
       )}

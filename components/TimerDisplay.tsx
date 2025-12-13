@@ -23,8 +23,8 @@ const TimerBlock: React.FC<{ value: number; label: string; highlight?: boolean; 
 export const TimerDisplay: React.FC<TimerDisplayProps> = ({ timeLeft, isFullScreen }) => {
   if (timeLeft.isNewYear) {
     return (
-      <div className="flex flex-col items-center justify-center animate-bounce z-50 relative w-full">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-yellow-200 to-gold-600 drop-shadow-2xl text-center px-4 leading-tight whitespace-nowrap">
+      <div className="flex flex-col items-center justify-center animate-bounce z-50 relative w-full px-2">
+        <h1 className="text-[7vw] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-yellow-200 to-gold-600 drop-shadow-2xl text-center leading-tight whitespace-nowrap">
           HAPPY NEW YEAR{' '}
           <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.5)]">
             {timeLeft.nextYear}

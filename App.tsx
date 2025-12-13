@@ -107,8 +107,8 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      {/* Controls - Bottom Right */}
-      <div className={`fixed bottom-8 right-8 z-40 transition-all duration-500 ${isFullScreen ? 'opacity-0 translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+      {/* Controls - Bottom Center Floating Dock */}
+      <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ${isFullScreen ? 'opacity-0 translate-y-10 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
         <Controls 
           timezone={timezone} 
           setTimezone={setTimezone} 
@@ -119,7 +119,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Footer - Bottom Left */}
-      <footer className={`absolute bottom-8 left-8 text-slate-600 text-xs transition-opacity duration-500 ${isFullScreen ? 'opacity-0' : 'opacity-100'}`}>
+      <footer className={`absolute bottom-8 left-8 text-slate-600 text-xs transition-opacity duration-500 hidden md:block ${isFullScreen ? 'opacity-0' : 'opacity-100'}`}>
         <p>&copy; {new Date().getFullYear()} Meetcross Ministry</p>
       </footer>
     </div>
